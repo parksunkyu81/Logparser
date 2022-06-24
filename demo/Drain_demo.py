@@ -13,8 +13,8 @@ regex      = [
     r'(/|)([0-9]+\.){3}[0-9]+(:[0-9]+|)(:|)', # IP
     r'(?<=[^A-Za-z0-9])(\-?\+?\d+)(?=[^A-Za-z0-9])|[0-9]+$', # Numbers
 ]
-st         = 0.5  # Similarity threshold
-depth      = 4  # Depth of all leaf nodes
+st         = 0.5  # 유사성 임계값
+depth      = 4  # 모든 리프 노드의 깊이
 
 parser = Drain.LogParser(log_format, indir=input_dir, outdir=output_dir,  depth=depth, st=st, rex=regex)
 parser.parse(log_file)
