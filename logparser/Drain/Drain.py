@@ -35,13 +35,13 @@ class LogParser:
         """
         Attributes
         ----------
-            rex : regular expressions used in preprocessing (step1)
-            path : the input path stores the input log file name
-            depth : depth of all leaf nodes
-            st : similarity threshold
-            maxChild : max number of children of an internal node
-            logName : the name of the input file containing raw log messages
-            savePath : the output path stores the file containing structured logs
+            rex : 전처리에 사용되는 정규식(step1)
+            path : 입력 경로는 입력 로그 파일 이름을 저장합니다
+            depth 모든 리프 노드의 깊이
+            st : 유사성 임계값
+            maxChild : 내부 노드의 최대 자식 수
+            logName : 원시 로그 메시지를 포함하는 입력 파일의 이름
+            savePath : 출력 경로는 구조화된 로그가 포함된 파일을 저장합니다.
         """
         self.path = indir
         self.depth = depth - 2
@@ -319,11 +319,11 @@ class LogParser:
         """ Function to generate regular expression to split log messages
         """
         headers = []
-        splitters = re.split(r'(<[^<>]+>)', logformat)
+        splitters = re.split('(<[^<>]+>)', logformat)
         regex = ''
         for k in range(len(splitters)):
             if k % 2 == 0:
-                splitter = re.sub(' +', '\\\s+', splitters[k])
+                splitter = re.sub(r'\s+', ' +', splitters[k])
                 regex += splitter
             else:
                 header = splitters[k].strip('<').strip('>')
@@ -336,7 +336,7 @@ class LogParser:
         template_regex = re.sub(r"<.{1,5}>", "<*>", row["EventTemplate"])
         if "<*>" not in template_regex: return []
         template_regex = re.sub(r'([^A-Za-z0-9])', r'\\\1', template_regex)
-        template_regex = re.sub(r'\\ +', r'\s+', template_regex)
+        template_regex = re.sub(r'\s+', r'\\ +', template_regex)
         template_regex = "^" + template_regex.replace("\<\*\>", "(.*?)") + "$"
         parameter_list = re.findall(template_regex, row["Content"])
         parameter_list = parameter_list[0] if parameter_list else ()
