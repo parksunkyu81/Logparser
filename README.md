@@ -5,7 +5,7 @@
 [![Documentation Status](https://readthedocs.org/projects/logparser/badge/?version=latest)](https://logparser.readthedocs.io/en/latest/?badge=latest)
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE.md)
 
-Logparser provides a toolkit and benchmarks for automated log parsing, which is a crucial step towards structured log analytics. By applying logparser, users can automatically learn event templates from unstructured logs and convert raw log messages into a sequence of structured events. In the literature, the process of log parsing is sometimes refered to as message template extraction, log key extraction, or log message clustering. 
+Logparser는 구조화된 로그 분석을 향한 중요한 단계인 자동화된 로그 구문 분석을 위한 툴킷과 벤치마크를 제공합니다. 사용자는 logparser를 적용하여 구조화되지 않은 로그에서 이벤트 템플릿을 자동으로 학습하고 원시 로그 메시지를 구조화된 이벤트 시퀀스로 변환할 수 있습니다. 문헌에서 로그 구문 분석 프로세스는 메시지 템플릿 추출, 로그 키 추출 또는 로그 메시지 클러스터링이라고도 합니다. 
 
 <p align="center"><img src="./docs/img/example.png" width="502"><br>An illustrative example of log parsing</p>
 
